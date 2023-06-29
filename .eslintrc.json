@@ -9,11 +9,18 @@
       "ecmaVersion": "latest",
       "sourceType": "module"
     },
+    "settings": {
+        "react": {
+          "createClass": "createReactClass",
+          "pragma": "React",
+          "fragment": "Fragment",
+          "version": "detect",
+          "flowVersion": "0.53"
+        },
     "plugins": ["react", "react-hooks"], // react → react", "react-hooks
     "rules": { // 全追加
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "react/prop-types": 0,
-      "react/react-in-jsx-scope": 0
+      "react-hooks/exhaustive-deps": "warn"
     }
   }
+}
