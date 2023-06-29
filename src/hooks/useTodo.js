@@ -14,7 +14,7 @@ export const useTodo = () => {
   // 検索キーワード
   const [ searchKeyword, setSearchKeyword ] = useState("");
 
-  // 更新後のTodoList
+  // 更新後のTodoList表示
   const showTodoList = useMemo(() => {
     return originTodoList.filter((todo) => { // propsのtodoListからtodo配列を生成し、そこから条件を付けてfilterする
       const regexp = new RegExp("^" + searchKeyword, "i"); // Regexpメソッドの引数に前方一致検索の条件を渡す
@@ -30,8 +30,11 @@ export const useTodo = () => {
     // Enterキーが押された時にTodoを追加
     if (e.key === "Enter" && addInputValue !== "") { // [条件] Enterキーを押すイベントが発生した時 + 入力値が空でない場合
       const nextUniqueId = uniqueId + 1; // nextUniqueId = 元の配列の要素数 + 1
-      // Todo追加処理: 元の配列を破壊しないように配列のコピーを作成して、その値でstateを更新する
-      // スプレッド構文を使用する
+
+      /**
+       * Todo追加処理: 元の配列を破壊しないように配列のコピーを作成して、その値でstateを更新する
+       * スプレッド構文を使用する
+       */
       const newTodoList = [
         ...originTodoList, // 元の配列を展開
         {
@@ -59,13 +62,20 @@ export const useTodo = () => {
   // 検索キーワード更新処理
   const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
 
-  const states {
-    
-  }
+  // 状態
+  const states = {
+    addInputValue, // 入力したタイトルを追加
+    searchKeyword, // 検索キーワード
+    showTodoList, // 更新後のTodoList表示
+  };
 
-  const actions {
-
-  }
+  // ロジック
+  const actions = {
+    onChangeAddInputValue, // addInputValueの変更処理
+    handleAddTodo, // Todo新規登録処理
+    handleDeleteTodo, // Todo削除処理
+    handleChangeSearchKeyword, // 検索キーワード更新処理
+  };
 
   return [states, actions];
 };
