@@ -1,14 +1,17 @@
 import { InputForm } from "../../atoms/InputForm";
 import { AddTodo } from "../../organisms/AddTodo";
 import { TodoList } from "../../organisms/TodoList";
-import styles from "./style.module.css";
 import { useTodo } from "../../../hooks/useTodo";
+import styles from "./style.module.css";
 
 // カスタムフックから状態とロジックを呼び出してコンポーネントにあてがう
 /*
 returnで返る配列の中にオブジェクトである状態とロジックを書く
 ＝＞ そうしないと右記のエラーが発生する → ':' が必要です。
 */
+
+export const TodoTemplate = () => {
+
 const [
     {
       addInputValue, // 入力したタイトルを追加
@@ -22,8 +25,6 @@ const [
       handleChangeSearchKeyword, // 検索キーワード更新処理
     },
   ] = useTodo();
-
-export const TodoTemplate = () => {
 
   return (
     <div className={styles.container}>

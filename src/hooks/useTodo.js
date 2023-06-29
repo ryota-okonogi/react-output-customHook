@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { INIT_TODO_LIST, INIT_UNIQUE_ID } from "../../constants/data.js";
+import { INIT_TODO_LIST, INIT_UNIQUE_ID } from "../constants/data.js";
 
 export const useTodo = () => {
   // 元のTodoList
